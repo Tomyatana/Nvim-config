@@ -11,12 +11,6 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use({ 'catppuccin/nvim', as = 'catppuccin',
-  config = function()
-	  vim.cmd('colorscheme catppuccin')
-  end
-  }
-  )
   -- LSP
   use {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'}
   use
@@ -31,6 +25,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
 
+  use 'folke/neodev.nvim'
+  use 'hrsh7th/cmp-nvim-lua'
+
   use {
       "windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
@@ -44,5 +41,20 @@ return require('packer').startup(function(use)
   use { 'preservim/nerdtree' }
 
   use { 'ap/vim-buftabline' }
+
+  use {
+    "catppuccin/nvim", as = "catppuccin"
+  }
+
+  use("nvim-tree/nvim-web-devicons")
+
+  use ( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} )
+  use ('nvim-treesitter/playground')
+
+  use('mbbill/undotree')
+
+  use ('ryanoasis/vim-devicons')
+
+  use ('rcarriga/nvim-notify')
 
 end)

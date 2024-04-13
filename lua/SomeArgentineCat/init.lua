@@ -1,4 +1,6 @@
 require("SomeArgentineCat.remap")
 require("SomeArgentineCat.set")
+require("SomeArgentineCat.ui")
+require("SomeArgentineCat.semi-colon-add")
 require("mason").setup()
-vim.api.nvim_exec ('language en_US', true)
+vim.api.nvim_exec('language en_US', true)
