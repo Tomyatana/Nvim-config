@@ -48,13 +48,21 @@ local mason_lspconfig = require('mason-lspconfig')
 
 require('mason').setup({})
 mason_lspconfig.setup({
-    ensure_installed = { 'clangd', 'rust_analyzer', 'lua_ls' },
+    ensure_installed = { 'clangd', 'lua_ls' },
 })
 
 mason_lspconfig.setup_handlers({
-    function (server_name)
+    function(server_name)
         lspconfig[server_name].setup({})
     end,
+    ['clangd'] = function (server_name)
+        lspconfig[server_name].setup({
+            cmd = {
+                "clangd",
+                "--header-insertion-decorators"
+            }
+        })
+    end
 })
 
 -- cmp
@@ -66,10 +74,13 @@ cmp.setup {
         {
             { name = "nvim_lsp" },
             { name = "buffer" },
+            { name = "nvim_cmp_sign" },
+            { name = "nvim_lsp_signature_help" },
+            { name = "path" },
         }
     ),
     mapping = {
-        ['<Tab>'] = cmp.mapping.confirm({select = true}),
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-k>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()

@@ -6,8 +6,8 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				-- ensure_installed = { "c", "vimdoc", "c_sharp", "rust", "lua", "query", "markdown", "zig", "javascript"},
-                auto_install = false,
+				ensure_installed = { "c", "vimdoc", "c_sharp", "rust", "lua", "query", "markdown", },
+                auto_install = true,
                 -- both don't do wel without internet
                 ignore_install = {""},
 				sync_install = true,

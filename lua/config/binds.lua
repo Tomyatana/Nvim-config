@@ -7,11 +7,7 @@ vim.keymap.set('n', '<leader>vkh', telescope.keymaps, {})
 vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
 vim.keymap.set('n', '<leader>fw', telescope.live_grep, {})
 
--- Moving bewtween windows
-vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<cr>")
-vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<cr>")
-vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<cr>")
-vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<cr>")
+-- Personal
 
 vim.keymap.set("n", "<leader>,", function ()
     local line = vim.api.nvim_get_current_line()
@@ -31,6 +27,7 @@ harpoon:setup()
 
 vim.keymap.set('n', "<leader>ha", function() harpoon:list():add() end)
 vim.keymap.set('n', "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set('n', "<C-h>", function() harpoon:list():clear() end)
 
 vim.keymap.set('n', "<leader>h1", function() harpoon:list():select(1) end)
 vim.keymap.set('n', "<leader>h2", function() harpoon:list():select(2) end)
